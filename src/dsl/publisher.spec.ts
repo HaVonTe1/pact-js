@@ -10,7 +10,6 @@ const expect = chai.expect
 describe.only("Publisher", () => {
   describe("#constructor", () => {
     it("constructs a valid Pubisher class", () => {
-
       const p = new Publisher({
         consumerVersion: "1.0.0",
         pactBroker: "http://foo.com",
@@ -18,6 +17,5 @@ describe.only("Publisher", () => {
       })
       expect(p).to.not.be.null
     })
-
   })
 })
