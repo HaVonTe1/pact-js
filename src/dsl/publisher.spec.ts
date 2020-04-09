@@ -7,7 +7,7 @@ chai.use(chaiAsPromised)
 
 const expect = chai.expect
 
-describe.only("Publisher", () => {
+describe("Publisher", () => {
   describe("#constructor", () => {
     it("constructs a valid Pubisher class", () => {
       const p = new Publisher({
@@ -15,7 +15,7 @@ describe.only("Publisher", () => {
         pactBroker: "http://foo.com",
         pactFilesOrDirs: [],
       })
-      expect(p).to.not.be.null
+      expect(p).to.have.nested.property("opts.consumerVersion")
     })
   })
 })
