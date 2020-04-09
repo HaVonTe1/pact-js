@@ -11,6 +11,9 @@ fi
 
 npm run dist
 
+echo "Have we built the Publisher?"
+ls -larth ./dist
+
 # Link the build so that the examples are always testing the
 # current build, in it's properly exported format
 (echo "changing to dist from $PWD" && cd dist && npm link)
