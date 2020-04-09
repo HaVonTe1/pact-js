@@ -1,4 +1,8 @@
-const { Publisher } = require("@pact-foundation/pact")
+const pact, { Publisher } = require("@pact-foundation/pact")
+
+console.log("pact: ", pact)
+console.log("publisher:", Publisher)
+
 const path = require("path")
 const opts = {
   pactFilesOrDirs: [
