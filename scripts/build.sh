@@ -25,6 +25,8 @@ for i in examples/*; do
     (cd "$i" && npm link @pact-foundation/pact-web && npm it)
   else
     echo "    linking pact"
+    cat /home/travis/build/pact-foundation/pact-js/dist/package.json
+    cat /home/travis/build/pact-foundation/pact-js/dist/pact.js
     (cd "$i" && npm link @pact-foundation/pact && npm it)
   fi
 done
