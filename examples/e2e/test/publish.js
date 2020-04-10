@@ -1,7 +1,7 @@
-const pact, { Publisher } = require("@pact-foundation/pact")
+const pact = require("@pact-foundation/pact")
 
 console.log("pact: ", pact)
-console.log("publisher:", Publisher)
+console.log("publisher:", pact.Publisher)
 
 const path = require("path")
 const opts = {
@@ -22,7 +22,7 @@ const opts = {
       : Math.floor(new Date() / 1000)),
 }
 
-new Publisher(opts)
+new pact.Publisher(opts)
   .publishPacts()
   .then(() => {
     console.log("Pact contract publishing complete!")
