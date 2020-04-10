@@ -2,8 +2,6 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "DIR: ${DIR}"
-
 if [ "${TRAVIS_BUILD_STAGE_NAME}" =~ "publish" ]; then
   echo "Skipping build for publish step"
   exit 0
@@ -11,13 +9,12 @@ fi
 
 npm run dist
 
-echo "Have we built the Publisher?"
-find ./dist
+${DIR}/prepare.sh
 
 # Link the build so that the examples are always testing the
 # current build, in it's properly exported format
-(echo "changing to dist from $PWD" && cd dist && npm link)
-(echo "changing to dist from $PWD" && cd dist-web && npm link)
+(cd dist && npm link)
+(cd dist-web && npm link)
 
 echo "Running e2e examples build for node version ${TRAVIS_NODE_VERSION}"
 for i in examples/*; do
